@@ -1,6 +1,6 @@
-# Basic Terraform Config Repository
+# Extended Infrastructure
 
-This repository contains Terraform configurations for managing infrastructure on AWS. It includes basic configurations for modules, simple infrastructure, and an extended infrastructure.
+This directory contains a comprehensive Terraform setup for managing and deploying a complex infrastructure. It includes configurations for multiple applications and core services, each with environment-specific variable files to ensure flexibility and scalability across different deployment stages. The structure is designed to promote modularity, maintainability, and efficient resource management.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ Before you begin, ensure you have the following installed:
 - [AWS CLI](https://aws.amazon.com/cli/) v2+
 - [jq](https://stedolan.github.io/jq/) (optional, for JSON parsing)
 
-## Repository Structure
+## Directory Structure
 
 ```plaintext
 extended-infrastructure                     # Root directory for extended infrastructure

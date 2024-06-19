@@ -1,4 +1,4 @@
-# Basic Terraform Config Repository
+# Module
 
 This repository contains Terraform configurations for managing infrastructure on AWS. It includes basic configurations for modules, simple infrastructure, and an extended infrastructure.
 
