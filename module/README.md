@@ -13,78 +13,13 @@ Before you begin, ensure you have the following installed:
 ## Repository Structure
 
 ```plaintext
-.
-├── README.md                               # Project documentation
-├── extended-infrastructure                 # Directory for extended infrastructure examples
-│   ├── applications                        # Directory for application configurations
-│   │   ├── example-application-1           # Configuration for Example Application 1
-│   │   │   ├── data.tf                     # Data sources used by the application
-│   │   │   ├── locals.tf                   # Local values used by the application
-│   │   │   ├── main.tf                     # Main configuration file
-│   │   │   ├── tfvars                      # Directory for environment-specific variable files
-│   │   │   │   ├── example-application-1-dev.tfvars   # Variables for the development environment
-│   │   │   │   └── example-application-1-test.tfvars  # Variables for the test environment
-│   │   │   ├── variables.tf                # Variable definitions
-│   │   │   └── versions.tf                 # Terraform version and provider requirements
-│   │   └── example-application-2           # Configuration for Example Application 2
-│   │       ├── data.tf                     # Data sources used by the application
-│   │       ├── locals.tf                   # Local values used by the application
-│   │       ├── main.tf                     # Main configuration file
-│   │       ├── tfvars                      # Directory for environment-specific variable files
-│   │       │   ├── example-application-2-dev.tfvars   # Variables for the development environment
-│   │       │   ├── example-application-2-prod.tfvars  # Variables for the production environment
-│   │       │   └── example-application-2-test.tfvars  # Variables for the test environment
-│   │       ├── variables.tf                # Variable definitions
-│   │       └── versions.tf                 # Terraform version and provider requirements
-│   ├── core-services                       # Directory for core service configurations
-│   │   ├── example-service-1               # Configuration for Example Service 1
-│   │   │   ├── data.tf                     # Data sources used by the service
-│   │   │   ├── locals.tf                   # Local values used by the service
-│   │   │   ├── main.tf                     # Main configuration file
-│   │   │   ├── tfvars                      # Directory for environment-specific variable files
-│   │   │   │   ├── example-service-1-dev.tfvars   # Variables for the development environment
-│   │   │   │   ├── example-service-1-prod.tfvars  # Variables for the production environment
-│   │   │   │   └── example-service-1-test.tfvars  # Variables for the test environment
-│   │   │   ├── variables.tf                # Variable definitions
-│   │   │   └── versions.tf                 # Terraform version and provider requirements
-│   │   └── example-service-2               # Configuration for Example Service 2
-│   │       ├── data.tf                     # Data sources used by the service
-│   │       ├── locals.tf                   # Local values used by the service
-│   │       ├── main.tf                     # Main configuration file
-│   │       ├── tfvars                      # Directory for environment-specific variable files
-│   │       │   ├── example-service-2-dev.tfvars   # Variables for the development environment
-│   │       │   ├── example-service-2-prod.tfvars  # Variables for the production environment
-│   │       │   └── example-service-2-test.tfvars  # Variables for the test environment
-│   │       ├── variables.tf                # Variable definitions
-│   │       └── versions.tf                 # Terraform version and provider requirements
-│   ├── environment                         # Directory for environment-specific configurations
-│   │   ├── dev.tfvars                      # Variables for the development environment
-│   │   ├── prod.tfvars                     # Variables for the production environment
-│   │   └── test.tfvars                     # Variables for the test environment
-│   └── global.tfvars                       # Global variable definitions
-├── module                                  # Directory for reusable modules
-│   ├── README.md                           # Module documentation
-│   ├── examples                            # Examples for using the module
-│   │   ├── main.tf                         # Example main configuration
-│   │   └── provider.tf                     # Example provider configuration
-│   ├── main.tf                             # Main module configuration
-│   └── variables.tf                        # Module variable definitions
-└── simple-infrastructure                   # Directory for simple infrastructure examples
-    ├── applications                        # Directory for application configurations
-    │   └── example-application-1           # Configuration for Example Application 1
-    │       ├── data.tf                     # Data sources used by the application
-    │       ├── locals.tf                   # Local values used by the application
-    │       ├── main.tf                     # Main configuration file
-    │       ├── tfvars                      # Directory for environment-specific variable files
-    │       │   ├── example-application-1-dev.tfvars   # Variables for the development environment
-    │       │   └── example-application-1-prod.tfvars  # Variables for the production environment
-    │       ├── variables.tf                # Variable definitions
-    │       └── versions.tf                 # Terraform version and provider requirements
-    ├── environment                         # Directory for environment-specific configurations
-    │   ├── dev.tfvars                      # Variables for the development environment
-    │   └── prod.tfvars                     # Variables for the production environment
-    └── global.tfvars                       # Global variable definitions
-
+module                                       # Root directory for the module
+├── README.md                                # Documentation for the module
+├── examples                                 # Directory for example usage of the module
+│   ├── main.tf                              # Example main configuration file using the module
+│   └── provider.tf                          # Example provider configuration file
+├── main.tf                                  # Main configuration file for the module
+└── variables.tf                             # Variable definitions for the module
 
 ```
 
