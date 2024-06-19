@@ -1,6 +1,6 @@
-# Basic Terraform Config Repository
+# Terraform Infrastructure
 
-This repository contains Terraform configurations for managing infrastructure on AWS. It includes basic configurations for modules, simple infrastructure, and an extended infrastructure.
+This directory contains a comprehensive Terraform setup for managing and deploying a complex infrastructure. It includes configurations for multiple applications and core services, each with environment-specific variable files to ensure flexibility and scalability across different deployment stages. The structure is designed to promote modularity, maintainability, and efficient resource management.
 
 ## Prerequisites
 
@@ -10,80 +10,57 @@ Before you begin, ensure you have the following installed:
 - [AWS CLI](https://aws.amazon.com/cli/) v2+
 - [jq](https://stedolan.github.io/jq/) (optional, for JSON parsing)
 
-## Repository Structure
+## Directory Structure
 
 ```plaintext
-.
-├── README.md                               # Project documentation
-├── extended-infrastructure                 # Directory for extended infrastructure examples
-│   ├── applications                        # Directory for application configurations
-│   │   ├── example-application-1           # Configuration for Example Application 1
-│   │   │   ├── data.tf                     # Data sources used by the application
-│   │   │   ├── locals.tf                   # Local values used by the application
-│   │   │   ├── main.tf                     # Main configuration file
-│   │   │   ├── tfvars                      # Directory for environment-specific variable files
-│   │   │   │   ├── example-application-1-dev.tfvars   # Variables for the development environment
-│   │   │   │   └── example-application-1-test.tfvars  # Variables for the test environment
-│   │   │   ├── variables.tf                # Variable definitions
-│   │   │   └── versions.tf                 # Terraform version and provider requirements
-│   │   └── example-application-2           # Configuration for Example Application 2
-│   │       ├── data.tf                     # Data sources used by the application
-│   │       ├── locals.tf                   # Local values used by the application
-│   │       ├── main.tf                     # Main configuration file
-│   │       ├── tfvars                      # Directory for environment-specific variable files
-│   │       │   ├── example-application-2-dev.tfvars   # Variables for the development environment
-│   │       │   ├── example-application-2-prod.tfvars  # Variables for the production environment
-│   │       │   └── example-application-2-test.tfvars  # Variables for the test environment
-│   │       ├── variables.tf                # Variable definitions
-│   │       └── versions.tf                 # Terraform version and provider requirements
-│   ├── core-services                       # Directory for core service configurations
-│   │   ├── example-service-1               # Configuration for Example Service 1
-│   │   │   ├── data.tf                     # Data sources used by the service
-│   │   │   ├── locals.tf                   # Local values used by the service
-│   │   │   ├── main.tf                     # Main configuration file
-│   │   │   ├── tfvars                      # Directory for environment-specific variable files
-│   │   │   │   ├── example-service-1-dev.tfvars   # Variables for the development environment
-│   │   │   │   ├── example-service-1-prod.tfvars  # Variables for the production environment
-│   │   │   │   └── example-service-1-test.tfvars  # Variables for the test environment
-│   │   │   ├── variables.tf                # Variable definitions
-│   │   │   └── versions.tf                 # Terraform version and provider requirements
-│   │   └── example-service-2               # Configuration for Example Service 2
-│   │       ├── data.tf                     # Data sources used by the service
-│   │       ├── locals.tf                   # Local values used by the service
-│   │       ├── main.tf                     # Main configuration file
-│   │       ├── tfvars                      # Directory for environment-specific variable files
-│   │       │   ├── example-service-2-dev.tfvars   # Variables for the development environment
-│   │       │   ├── example-service-2-prod.tfvars  # Variables for the production environment
-│   │       │   └── example-service-2-test.tfvars  # Variables for the test environment
-│   │       ├── variables.tf                # Variable definitions
-│   │       └── versions.tf                 # Terraform version and provider requirements
-│   ├── environment                         # Directory for environment-specific configurations
-│   │   ├── dev.tfvars                      # Variables for the development environment
-│   │   ├── prod.tfvars                     # Variables for the production environment
-│   │   └── test.tfvars                     # Variables for the test environment
-│   └── global.tfvars                       # Global variable definitions
-├── module                                  # Directory for reusable modules
-│   ├── README.md                           # Module documentation
-│   ├── examples                            # Examples for using the module
-│   │   ├── main.tf                         # Example main configuration
-│   │   └── provider.tf                     # Example provider configuration
-│   ├── main.tf                             # Main module configuration
-│   └── variables.tf                        # Module variable definitions
-└── simple-infrastructure                   # Directory for simple infrastructure examples
-    ├── applications                        # Directory for application configurations
-    │   └── example-application-1           # Configuration for Example Application 1
-    │       ├── data.tf                     # Data sources used by the application
-    │       ├── locals.tf                   # Local values used by the application
-    │       ├── main.tf                     # Main configuration file
-    │       ├── tfvars                      # Directory for environment-specific variable files
-    │       │   ├── example-application-1-dev.tfvars   # Variables for the development environment
-    │       │   └── example-application-1-prod.tfvars  # Variables for the production environment
-    │       ├── variables.tf                # Variable definitions
-    │       └── versions.tf                 # Terraform version and provider requirements
-    ├── environment                         # Directory for environment-specific configurations
-    │   ├── dev.tfvars                      # Variables for the development environment
-    │   └── prod.tfvars                     # Variables for the production environment
-    └── global.tfvars                       # Global variable definitions
+extended-infrastructure                     # Root directory for extended infrastructure
+├── README.md                               # Documentation for extended infrastructure
+├── applications                            # Directory for application configurations
+│   ├── example-application-1               # Configuration for Example Application 1
+│   │   ├── data.tf                         # Data sources used by the application
+│   │   ├── locals.tf                       # Local values used by the application
+│   │   ├── main.tf                         # Main configuration file
+│   │   ├── tfvars                          # Directory for environment-specific variable files
+│   │   │   ├── example-application-1-dev.tfvars   # Variables for the development environment
+│   │   │   └── example-application-1-test.tfvars  # Variables for the test environment
+│   │   ├── variables.tf                    # Variable definitions
+│   │   └── versions.tf                     # Terraform version and provider requirements
+│   └── example-application-2               # Configuration for Example Application 2
+│       ├── data.tf                         # Data sources used by the application
+│       ├── locals.tf                       # Local values used by the application
+│       ├── main.tf                         # Main configuration file
+│       ├── tfvars                          # Directory for environment-specific variable files
+│       │   ├── example-application-2-dev.tfvars   # Variables for the development environment
+│       │   ├── example-application-2-prod.tfvars  # Variables for the production environment
+│       │   └── example-application-2-test.tfvars  # Variables for the test environment
+│       ├── variables.tf                    # Variable definitions
+│       └── versions.tf                     # Terraform version and provider requirements
+├── core-services                           # Directory for core service configurations
+│   ├── example-service-1                   # Configuration for Example Service 1
+│   │   ├── data.tf                         # Data sources used by the service
+│   │   ├── locals.tf                       # Local values used by the service
+│   │   ├── main.tf                         # Main configuration file
+│   │   ├── tfvars                          # Directory for environment-specific variable files
+│   │   │   ├── example-service-1-dev.tfvars   # Variables for the development environment
+│   │   │   ├── example-service-1-prod.tfvars  # Variables for the production environment
+│   │   │   └── example-service-1-test.tfvars  # Variables for the test environment
+│   │   ├── variables.tf                    # Variable definitions
+│   │   └── versions.tf                     # Terraform version and provider requirements
+│   └── example-service-2                   # Configuration for Example Service 2
+│       ├── data.tf                         # Data sources used by the service
+│       ├── locals.tf                       # Local values used by the service
+│       ├── main.tf                         # Main configuration file
+│       ├── tfvars                          # Directory for environment-specific variable files
+│       │   ├── example-service-2-dev.tfvars   # Variables for the development environment
+│       │   ├── example-service-2-prod.tfvars  # Variables for the production environment
+│       │   └── example-service-2-test.tfvars  # Variables for the test environment
+│       ├── variables.tf                    # Variable definitions
+│       └── versions.tf                     # Terraform version and provider requirements
+├── environment                             # Directory for environment-specific configurations
+│   ├── dev.tfvars                          # Variables for the development environment
+│   ├── prod.tfvars                         # Variables for the production environment
+│   └── test.tfvars                         # Variables for the test environment
+└── global.tfvars                           # Global variable definitions
 
 
 ```
