@@ -5,6 +5,11 @@
 *.tfstate
 *.tfstate.*
 
+# Act secrets
+.secret
+.github/act/.secret
+!.github/act/.secret
+
 # Backup files
 .terraform/
 .terraform.lock.hcl
