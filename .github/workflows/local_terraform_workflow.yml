@@ -1,6 +1,6 @@
 name: "Local IaC development workflow"
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
   local_deploy:
