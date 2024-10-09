@@ -1,15 +1,12 @@
-name: "[CI] Deploy Terraform stacks to Dev"
+name: "[Analysis] Run scheduled destroy job"
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 19 * * 1-5' # Every weekday at 19:00
 
 jobs:
-  dev_deploy:
+  dev_destroy:
     name: Deploy Development Terraform
-    concurrency:
-      group: "dev-main"
-    uses: UKHSA-Internal/devops-github-reusable-workflows/.github/workflows/terraform-plan-apply.yml@main
+    uses: UKHSA-Internal/devops-github-reusable-workflows/.github/workflows/terraform-destroy.yml@main
     permissions:
       packages: read
       contents: read

@@ -9,7 +9,6 @@
 			"version": "20.10",
 			"enableNonRootDocker": "true",
 			"moby": "false"
-		},
-		"ghcr.io/itsmechlark/features/act:1": {}
+		}
 	}
 }
